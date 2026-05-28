@@ -29,6 +29,33 @@ const Banner = () => {
     fetchData();
   }, []);
 
+  const handlePlay = async () => {
+    try {
+      // close trailer if already open
+      if (trailerUrl) {
+        setTrailerUrl("");
+        return;
+      }
+
+      // movie title
+      const movieName = movie?.title || movie?.name || movie?.original_name;
+
+      if (!movieName) return;
+
+      // find youtube trailer
+      const url = await movieTrailer(movieName);
+
+      if (url) {
+        const urlParams = new URLSearchParams(new URL(url).search);
+
+        const videoId = urlParams.get("v");
+
+        setTrailerUrl(videoId);
+      }
+    } catch (error) {
+      console.log("Trailer not found:", error);
+    }
+  };
   return (
     <header
       className="banner"
@@ -47,7 +74,9 @@ const Banner = () => {
         </h1>
 
         <div className="banner__buttons">
-          <button className="banner__button play">Play</button>
+          <button className="banner__button play" onClick={handlePlay}>
+            Play
+          </button>
           <button className="banner__button">My List</button>
         </div>
 
