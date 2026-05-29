@@ -1,0 +1,58 @@
+/* MAIN ROW CONTAINER */
+.row {
+  margin-left: 20px;
+  color: white;
+}
+
+/* ROW TITLE */
+.row__title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 10px 0;
+  padding-left: 10px;
+}
+
+/* POSTERS CONTAINER (HORIZONTAL SCROLL) */
+.row__posters {
+  display: flex;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  padding: 20px 10px;
+  scroll-behavior: smooth;
+}
+
+/* HIDE SCROLLBAR (Chrome, Edge, Safari) */
+.row__posters::-webkit-scrollbar {
+  display: none;
+}
+
+/* POSTER IMAGE */
+.row__poster {
+  object-fit: contain;
+  width: 100%;
+  max-height: 150px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* HOVER EFFECT */
+.row__poster:hover {
+  transform: scale(1.08);
+  opacity: 1;
+}
+
+/* LARGE ROW POSTER (Netflix Originals) */
+.row__posterLarge {
+  max-height: 250px;
+}
+
+.row__posterLarge:hover {
+  transform: scale(1.1);
+}
+
+/* TRAILER SECTION */
+.row__trailer {
+  padding: 40px;
+}
